@@ -8,10 +8,10 @@ unzip awscliv2.zip
 rm -rf awscliv2.zip
 sudo ./aws/install
 aws --version
-
 sudo yum install -y httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
+sudo mkdir -p /home/ec2-user/site
 
 
 

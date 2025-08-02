@@ -28,7 +28,7 @@ resource "null_resource" "provision_ec2" {
 
    provisioner "file" {
     source      = "site/"                      # 👈 Your local file
-    destination = "/home/ec2-user/"       # 👈 Remote path
+    destination = "/home/ec2-user/site/"       # 👈 Remote path
 
     connection {
       type        = "ssh"
