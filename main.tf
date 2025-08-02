@@ -1,14 +1,28 @@
+terraform {
+  required_version = ">= 1.4.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
 provider "aws" {
   region = var.aws_region
 
 }
 
+data "aws_vpc" "default" {
+  default = true
+}
 module "ec2_instance" {
   source        = "./modules/ec2"
   ami_id        = var.ami_id
   instance_type = var.instance_type
   instance_name = var.instance_name
   key_name      = var.key_name
+  vpc_id       = data.aws_vpc.default.id
   private_key_path = var.private_key_path
   security_group_ids = [module.web_sg.security_group_id]
   aws_iam_instance_profile  = module.ec2_s3_role.instance_profile_name
@@ -17,8 +31,7 @@ module "web_sg" {
   source      = "./modules/security_groups"
   name        = "web-sg"
   description = "Security group for web servers"
-  vpc_id      = "vpc-0307a62533a99912a"
-  
+  vpc_id      = data.aws_vpc.default.id
 
   ingress_rules = [
     {
@@ -31,7 +44,7 @@ module "web_sg" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = ["49.207.207.88/32"]
+      cidr_blocks = ["49.207.209.216/32"]  # Replace with your IP address
     }
   ]
 
