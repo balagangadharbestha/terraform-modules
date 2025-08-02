@@ -44,7 +44,7 @@ module "web_sg" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = ["49.207.209.216/32"]  # Replace with your IP address
+      cidr_blocks = ["0.0.0.0/0"]  # Replace with your IP address
     }
   ]
 
