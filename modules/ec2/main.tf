@@ -18,13 +18,13 @@ resource "null_resource" "provision_ec2" {
   triggers = {
     always_run = timestamp()  # Forces re-run on every apply
   }
-  provisioner "local-exec" {
+ /* provisioner "local-exec" {
   command = <<EOT
     mkdir -p $HOME/.ssh
     ssh-keyscan -H ${aws_instance.this.public_ip} >> $HOME/.ssh/known_hosts
   EOT
   interpreter = ["bash", "-c"]
-}
+}*/
 
    provisioner "file" {
     source      = "site/"                      # 👈 Your local file
