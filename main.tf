@@ -54,6 +54,28 @@ module "web_sg" {
   }
 }
 
+/*module "my_s3_bucket" {
+  source            = "./modules/s3_bucket"
+  bucket_name       = "balu-unique-bucket-7574"  # make sure this is globally unique
+  acl               = "private"
+  versioning_enabled = true
+  tags = {
+    Environment = "Dev"
+    Project     = "Terraform S3 Module"
+  }
+}
+*/
+
+terraform {
+  backend "s3" {
+    bucket         = "balu-unique-bucket-0741"     # your unique S3 bucket
+    key            = "env/dev/terraform.tfstate"       # state file path within bucket
+    region         = "us-east-1"                       # S3 bucket region
+    encrypt        = true                              # encrypt state file
+   # dynamodb_table = "terraform-locks"                 # optional: for locking
+  }
+}
+
 
 module "ec2_s3_role" {
   source      = "./modules/iam_role_ec2"
