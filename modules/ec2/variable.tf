@@ -33,3 +33,8 @@ variable "key_name" {
   type        = string
   default     = null # Adjust as necessary
 }
+
+variable "vpc_id" {
+  description = "VPC ID where the security group will be created"
+  type        = string
+}
