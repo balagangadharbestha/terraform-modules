@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "this" {
+/*resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
   acl    = var.acl
 
@@ -12,3 +12,4 @@ resource "aws_s3_bucket_versioning" "this" {
     status = var.versioning_enabled ? "Enabled" : "Suspended"
   }
 }
+*/

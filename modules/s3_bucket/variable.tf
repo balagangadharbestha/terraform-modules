@@ -1,4 +1,4 @@
-variable "bucket_name" {
+/*variable "bucket_name" {
   description = "Globally unique name for the S3 bucket"
   type        = string
 }
@@ -20,3 +20,4 @@ variable "versioning_enabled" {
   type        = bool
   default     = false
 }
+*/
