@@ -12,6 +12,8 @@ sudo yum install -y httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo mkdir -p /home/ec2-user/site
+sudo chown -R ec2-user:ec2-user /home/ec2-user/site
+sudo chmod 755 /home/ec2-user/site
 
 
 
