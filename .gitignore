@@ -4,4 +4,3 @@ terraform-us-east-1.pem
 terraform.tfstate
 terraform.tfstate.backup
 .terraform.lock.hcl
-.password
