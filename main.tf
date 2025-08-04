@@ -68,7 +68,7 @@ module "web_sg" {
 
 terraform {
   backend "s3" {
-    bucket         = "balu-unique-bucket-0741"     # your unique S3 bucket
+    bucket         = "balu-unique-bucket-082025"     # your unique S3 bucket
     key            = "env/dev/terraform.tfstate"       # state file path within bucket
     region         = "us-east-1"                       # S3 bucket region
     encrypt        = true                              # encrypt state file
