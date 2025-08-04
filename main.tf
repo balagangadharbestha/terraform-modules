@@ -56,7 +56,7 @@ module "web_sg" {
 
 /*module "my_s3_bucket" {
   source            = "./modules/s3_bucket"
-  bucket_name       = "balu-unique-bucket-7574"  # make sure this is globally unique
+  bucket_name       = "balu-unique-bucket-082025"  # make sure this is globally unique
   acl               = "private"
   versioning_enabled = true
   tags = {
@@ -80,5 +80,5 @@ terraform {
 module "ec2_s3_role" {
   source      = "./modules/iam_role_ec2"
   role_name   = "ec2-access-my-s3-bucket"
-  bucket_name = "my-special-bucket-name"
+  bucket_name = "*balu-unique-bucket-0741"  # your unique S3 bucket
 }
